@@ -5,8 +5,9 @@
 The preprocessed datasets are available:
 
 1. [TissueNet datasets](https://drive.google.com/drive/folders/1dUtqhvkF-M7nSwtxUpY0QmgHIgA4pinc?usp=sharing).
+   
     Data structure:
-   ```
+
    - **X**: Images with the shape of (14107, 256, 256, 2)
       - **Channel 0**: Nuclear images
       - **Channel 1**: Whole-cell images
@@ -25,5 +26,4 @@ The preprocessed datasets are available:
       - 'Spleen'
       - 'Tonsil'
       - 'lymph node metastasis'
-   ```
    
