@@ -15,7 +15,7 @@ The preprocessed datasets are available:
       - **Channel 1**: Nuclear labels
       - **Channel 0**: Whole-cell labels
    - **filenames**: All filenames with the count of 14107
-   - **tissue_list**: All tissue names including ten different tissue types
+   - **tissue_list**: Tissue name corresponding to each image, including 10 different tissue types
       - 'Breast'
       - 'Colon'
       - 'Epidermis'
@@ -26,4 +26,19 @@ The preprocessed datasets are available:
       - 'Spleen'
       - 'Tonsil'
       - 'lymph node metastasis'
+
+2. [LIVECell datasets](https://drive.google.com/drive/folders/1mJayXI2W9DLL17fsD3j2AcFySebnsoza?usp=sharing).
    
+    Data structure:
+
+   - **X**: Nuclear images with the shape of (16000, 256, 256)
+   - **y**: Nuclear labels with the shape of (16000, 256, 256)
+   - **tissue_list**: Cell type name corresponding to each image, including 8 different cell types
+      - 'A172'
+      - 'BT474'
+      - 'BV2'
+      - 'Huh7'
+      - 'MCF7'
+      - 'SHSY5Y'
+      - 'SKOV3'
+      - 'SkBr3'
