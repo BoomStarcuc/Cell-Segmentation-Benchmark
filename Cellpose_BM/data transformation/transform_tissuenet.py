@@ -8,7 +8,7 @@ import random
 data_dir = '/path/to/your/data/dir'
 is_single = False #single or dual channel image
 is_nuclear = True #nuclear or whole-cell image
-samples_set = "test"
+samples_set = "test" #train, val or test
 test_dict = np.load(os.path.join(data_dir, 'tissuenet_{}_split_256x256_memserpreprocess.npz'.format(samples_set)), allow_pickle=True)
 # test_dict = np.load(os.path.join(data_dir, 'tissuenet_{}_split_256x256_memserpreprocess.npz'.format(samples_set)), allow_pickle=True)
 # test_dict = np.load(os.path.join(data_dir, 'tissuenet_{}_split_256x256_memserpreprocess.npz'.format(samples_set)), allow_pickle=True)
