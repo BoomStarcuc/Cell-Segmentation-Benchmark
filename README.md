@@ -1,7 +1,7 @@
 # Cell-Segmentation-Benchmark
 
 ## Overview
-<div align=center><img src="https://github.com/BoomStarcuc/GeneSegNet/blob/master/data/GeneSegNet_framework.png" width="1000" height="360"/></div>
+<div align=center><img src="https://github.com/BoomStarcuc/Cell-Segmentation-Benchmark/blob/master/data/Overview.png" width="1000" height="400"/></div> 
 
 ## Datasets
 
