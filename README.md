@@ -1,7 +1,7 @@
 # Cell-Segmentation-Benchmark
 
 ## Overview
-<div align=center><img src="https://github.com/BoomStarcuc/Cell-Segmentation-Benchmark/blob/master/data/Overview.png" width="1000" height="750"/></div> 
+<div align=center><img src="https://github.com/BoomStarcuc/Cell-Segmentation-Benchmark/blob/master/data/Overview.png" width="1000" height="700"/></div> 
 
 ## Datasets
 
