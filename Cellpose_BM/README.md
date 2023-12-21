@@ -1,13 +1,13 @@
 # Cellpose
 
 ## Data transformation
-Since the structure of datasets provided do not satisfy the format of training cellpose, so you need to run the following code from data transformation directory
+Since the structure of the datasets provided does not satisfy the format of the training cellpose, you need to run the following code from the data transformation directory
 
 ```python transform_tissuenet.py```
 
 ```python transform_livecell.py```
 
-Note: ```data_dir``` need to be modified to your corresponding path.
+Note: ```data_dir```needs to be modified to your corresponding path.
 
 ## Local installation (< 2 minutes)
 
@@ -17,7 +17,7 @@ Linux, Windows and Mac OS are supported for running the code. At least 8GB of RA
 
 ### Dependencies
 
-cellpose relies on the following excellent packages (which are automatically installed with conda/pip if missing):
+Cellpose relies on the following excellent packages (which are automatically installed with conda/pip if missing):
 - [pytorch](https://pytorch.org/)
 - [pyqtgraph](http://pyqtgraph.org/)
 - [PyQt5](http://pyqt.sourceforge.net/Docs/PyQt5/)
@@ -30,6 +30,15 @@ cellpose relies on the following excellent packages (which are automatically ins
 - [imagecorruptions](https://pypi.org/project/imagecorruptions/)(1.1.2)
 - [imgaug](https://pypi.org/project/imgaug/)(0.4.0)
 
-### Installation of github version
+### Installation of GitHub version
 
-Follow steps from above to install the dependencies. Then download cellpose_BM in the github repository folder. And then cd 'cellpose_BM' and run `pip install -e .`.
+Follow the steps from above to install the dependencies. Then download cellpose_BM in the GitHub repository folder. And then cd 'cellpose_BM' and run `pip install -e .`.
+
+## Training from scratch
+
+See '''cellpose_submit_livecell_train.slurm''', '''cellpose_submit_nuclear_train.slurm''', and '''cellpose_submit_wholecell_train.slurm''' files.
+
+## Test
+
+See '''cellpose_submit_livecell_test.slurm''', '''cellpose_submit_nuclear_test.slurm''', and '''cellpose_submit_wholecell_test.slurm''' files.
+
