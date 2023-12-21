@@ -5,6 +5,8 @@ Since the structure of datasets provided do not satisfy the format of training c
 
 ```python transform_tissuenet.py```
 
+```python transform_livecell.py```
+
 Note: ```data_dir``` need to be modified to your corresponding path.
 
 ## Local installation (< 2 minutes)
