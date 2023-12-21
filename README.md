@@ -1,5 +1,8 @@
 # Cell-Segmentation-Benchmark
 
+## Overview
+<div align=center><img src="https://github.com/BoomStarcuc/GeneSegNet/blob/master/data/GeneSegNet_framework.png" width="1000" height="360"/></div>
+
 ## Datasets
 
 The preprocessed datasets are available:
