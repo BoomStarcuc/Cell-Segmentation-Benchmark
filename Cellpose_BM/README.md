@@ -42,3 +42,4 @@ See '''cellpose_submit_livecell_train.slurm''', '''cellpose_submit_nuclear_train
 
 See '''cellpose_submit_livecell_test.slurm''', '''cellpose_submit_nuclear_test.slurm''', and '''cellpose_submit_wholecell_test.slurm''' files.
 
+Note: --nchan_test needs to be modified based on the number of channels of your training. --nchan_test can be set to 1 or 2.
