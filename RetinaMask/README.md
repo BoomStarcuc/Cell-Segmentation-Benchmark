@@ -17,6 +17,10 @@ conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
 python3 -m pip install tensorflow
 pip install deepcell-retinamask
+pip install pandas==1.5.1
+pip install openpyxl==3.0.10
+pip install imagecorruptions==1.1.2
+pip install imgaug==0.4.0
 ```
 
 Note: if your GPU is not recognized after installation, try to ```spack load cuda@11.0.2%gcc@9.3.0/lrd2rcw``` before starting the installation process.
