@@ -265,7 +265,8 @@ def main():
     
     model = StarDist2D(conf, name=EXP_NAME, basedir=MODEL_DIR)
     print(model)
-    model.load_weights("path/to/your/pre-trained/directory")
+    model_dir = "path/to/your/pre-trained/directory"
+    model.load_weights(model_dir)
 
     print('loading test data')
     data_dir="path/to/your/dataset/directory"

@@ -196,6 +196,31 @@ def _true_positive(iou, th):
     tp = match_ok.sum()
     return tp
 
+def normalize(x, pmin=0.0, pmax=100.0, axis=None, clip=False, eps=1e-20, dtype=np.float32):
+    """Percentile-based image normalization."""
+
+    mi = np.percentile(x,pmin,axis=axis,keepdims=True)
+    ma = np.percentile(x,pmax,axis=axis,keepdims=True)
+    return normalize_mi_ma(x, mi, ma, clip=clip, eps=eps, dtype=dtype)
+
+def normalize_mi_ma(x, mi, ma, clip=False, eps=1e-20, dtype=np.float32):
+    if dtype is not None:
+        x   = x.astype(dtype,copy=False)
+        mi  = dtype(mi) if np.isscalar(mi) else mi.astype(dtype,copy=False)
+        ma  = dtype(ma) if np.isscalar(ma) else ma.astype(dtype,copy=False)
+        eps = dtype(eps)
+
+    try:
+        import numexpr
+        x = numexpr.evaluate("(x - mi) / ( ma - mi + eps )")
+    except ImportError:
+        x =                   (x - mi) / ( ma - mi + eps )
+
+    if clip:
+        x = np.clip(x,0,1)
+
+    return x
+
 def main():
     # Training settings
     parser = argparse.ArgumentParser(description='PyTorch Stardist Example')
@@ -211,7 +236,7 @@ def main():
                         help='how many batches to wait before logging training status')
     parser.add_argument('--data-dir', type=str, default='path/to/your/dataset/directory', 
                         help='path to the data')
-    parser.add_argument('--exp-name', type=str, default='stardist_train_on_all_types_wholecell_1C', 
+    parser.add_argument('--exp-name', type=str, default='stardist_livecell', 
                         help='name of the experiment')
     parser.add_argument('--model-name', type=str, default='stardist', 
                         help='name of the experiment')
@@ -222,11 +247,13 @@ def main():
     parser.add_argument('--chooseone', default='All',
                         help='choose from Tonsil Breast BV2 Epidermis SHSY5Y Esophagus \
                         A172 SkBr3 Lymph_Node Lung SKOV3 Pancreas Colon MCF7 Huh7 BT474 lymph node metastasis Spleen')
-    parser.add_argument('--excelname', type=str, default='Stardist_nuclear_1C')                         
+    parser.add_argument('--excelname', type=str, default='stardist_livecell')                             
     args = parser.parse_args()
+    # from deepcell_toolbox.multiplex_utils import multiplex_preprocess
 
+    # create folder for this set of experiments
     experiment_folder = args.exp_name
-    MODEL_DIR = os.path.join("./Stardist", experiment_folder)
+    MODEL_DIR = os.path.join("./stardist", experiment_folder)
 
     if not os.path.isdir(MODEL_DIR):
         os.makedirs(MODEL_DIR)
@@ -242,6 +269,7 @@ def main():
 
     print("Stardist")
     axis_norm = (0,1) 
+    # 32 is a good default choice (see 1_data.ipynb)
     n_rays = 32
     # Predict on subsampled grid for increased efficiency and larger field of view
     grid = (2, 2)
@@ -268,13 +296,13 @@ def main():
 
     print('loading test data')
     data_dir="path/to/your/dataset/directory"
-    test_dict = np.load(os.path.join(data_dir, 'tissuenet_test_split_256x256_memserpreprocess.npz'), allow_pickle=True) 
+    test_dict = np.load(os.path.join(data_dir, 'LIVECell_val_all.npz'), allow_pickle=True)
 
-    X_test = test_dict['X'][...,1].squeeze()
-    y_test = test_dict['y'][...,0].squeeze()
+    X_test = test_dict['X'].squeeze()
+    y_test = test_dict['y'].squeeze()
     y_test = y_test.astype('int32').squeeze()
     tissue_list= test_dict['tissue_list']
-    
+
     X_test1 = [normalize(x, 0.0, 99.8, axis=axis_norm) for x in tqdm(X_test)]
     X_test2 = np.empty([len(X_test1), 256, 256])
     for idx , conponent in enumerate(X_test1):    
@@ -290,16 +318,17 @@ def main():
 
     labeled_images = np.array(y_test_pred1)
 
-    unique_list = ['Breast', 'Colon', 'Epidermis', 'Esophagus', 'Lung', 'lymph node metastasis', 'Lymph Node', 'Pancreas', 'Spleen', 'Tonsil', 'All']
-    output_data = np.empty([11, 5])
+    unique_list = ['A172', 'BT474', 'BV2', 'Huh7', 'MCF7', 'SkBr3', 'SHSY5Y', 'SKOV3', 'All']
+    output_data = np.empty([9, 5])
     for tissue_idx ,tissue in enumerate(unique_list):
         if tissue == "All":
             idx = [k for k in range(len(tissue_list))]
         else:
             idx = np.where(tissue_list==tissue)[0]
+            print(len(idx))
         print(tissue)    
         for count, value in enumerate(idx):
-            if count == 0:
+            if count ==0:
                 ap, tp, fp, fn, num_pred= average_precision(y_test[value], labeled_images[value], threshold=[0.5 , 0.55, 0.6 , 0.65, 0.7 , 0.75, 0.8 , 0.85, 0.9 , 0.95])
             else:
                 ap2, tp2, fp2, fn2, num_pred2= average_precision(y_test[value], labeled_images[value], threshold=[0.5 , 0.55, 0.6 , 0.65, 0.7 , 0.75, 0.8 , 0.85, 0.9 , 0.95])
