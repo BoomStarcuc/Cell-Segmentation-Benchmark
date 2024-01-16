@@ -14,24 +14,11 @@ conda activate stardist
 
 ```
 pip install stardist
-```
-
-```
 pip install pandas==1.5.1
-```
-
-```
 pip install openpyxl==3.0.10
-```
-
-```
 pip install imagecorruptions==1.1.2
-```
-
-```
 pip install imgaug==0.4.0
 ```
-
 
 ## Training from scratch
 
