@@ -5,12 +5,20 @@ You can directly use the provided datasets without any transformation.
 
 ## installation
 
-```conda create -n stardist python=3.7```
-```conda activate stardist```
+1. Create conda environments, use:
+   ```conda create -n stardist python=3.7
+      conda activate stardist```
+   
+2. Install the required packages:
+
 ```pip install stardist```
+
 ```pip install pandas==1.5.1```
+
 ```pip install openpyxl==3.0.10```
+
 ```pip install imagecorruptions==1.1.2```
+
 ```pip install imgaug==0.4.0```
 
 
