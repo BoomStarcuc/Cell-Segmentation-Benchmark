@@ -54,10 +54,40 @@ python stardist_wholecell_1C.py
 python stardist_livecell.py
 ```
 
-Note: ```data_dir``` needs to be modified to your corresponding dataset path.
+Note: ```data_dir``` needs to be modified to your corresponding dataset directory.
 
 ## Test
 
-See ```cellpose_submit_livecell_test.slurm```, ```cellpose_submit_nuclear_test.slurm```, and ```cellpose_submit_wholecell_test.slurm``` files.
+For five experiment scenarios, test:
 
-Note: --nchan_test needs to be modified based on the number of channels of your training. --nchan_test can be set to 1 or 2.
+1. TissueNet. Data: dual-channel, label: nucleus
+   
+```
+python stardist_nuclear_2C_test.py
+```
+
+2. TissueNet. Data: nucleus, label: nucleus
+   
+```
+python stardist_nuclear_1C_test.py
+```
+
+3. TissueNet. Data: dual-channel, label: whole-cell
+   
+```
+python stardist_wholecell_2C_test.py
+```
+
+4. TissueNet. Data: whole-cell, label: whole-cell
+   
+```
+python stardist_wholecell_1C_test.py
+```
+
+5. LIVECell. Data: nucleus, label: nucleus
+
+```
+python stardist_livecell_test.py
+```
+
+Note: ```data_dir``` and ```model_dir``` need to be modified to your corresponding dataset directory and pre-trained model file.
