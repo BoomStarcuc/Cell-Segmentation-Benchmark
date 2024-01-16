@@ -3,7 +3,7 @@
 ## Data transformation
 You can directly use the provided datasets without any transformation.
 
-## installation
+## Installation
 1. Create conda environments, use:
 ```
 conda create -n stardist python=3.7
@@ -22,9 +22,39 @@ pip install imgaug==0.4.0
 
 ## Training from scratch
 
-See ```cellpose_submit_livecell_train.slurm```, ```cellpose_submit_nuclear_train.slurm```, and ```cellpose_submit_wholecell_train.slurm``` files.
+For five experiment scenarios, run:
 
-Note: Cellpose will automatically identify the number of channels of your input. You need to follow the code from the data transformation directory to generate the correct structure of the dataset.
+1. TissueNet. Data: dual-channel, label: nucleus
+   
+```
+python stardist_nuclear_2C.py
+```
+
+2. TissueNet. Data: nucleus, label: nucleus
+   
+```
+python stardist_nuclear_1C.py
+```
+
+3. TissueNet. Data: dual-channel, label: whole-cell
+   
+```
+python stardist_wholecell_2C.py
+```
+
+4. TissueNet. Data: whole-cell, label: whole-cell
+   
+```
+python stardist_wholecell_1C.py
+```
+
+5. LIVECell. Data: nucleus, label: nucleus
+
+```
+python stardist_livecell.py
+```
+
+Note: ```data_dir``` needs to be modified to your corresponding dataset path.
 
 ## Test
 
