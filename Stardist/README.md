@@ -91,3 +91,16 @@ python stardist_livecell_test.py
 ```
 
 Note: ```data_dir``` and ```model_dir``` need to be modified to your corresponding dataset directory and pre-trained model file.
+
+## Citation
+
+```
+@inproceedings{schmidt2018,
+  author    = {Uwe Schmidt and Martin Weigert and Coleman Broaddus and Gene Myers},
+  title     = {Cell Detection with Star-Convex Polygons},
+  booktitle= {Medical Image Computing and Computer Assisted Intervention - {MICCAI} 
+  2018 - 21st International Conference, Granada, Spain, September 16-20, 2018, Proceedings, Part {II}},
+  pages     = {265--273},
+  year      = {2018},
+}
+```
