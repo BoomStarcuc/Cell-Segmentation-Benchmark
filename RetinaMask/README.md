@@ -96,3 +96,15 @@ python retinamask_livecell_test.py
 ```
 
 Note: ```data_dir``` needs to be modified to your corresponding dataset directory.
+
+## Citation
+
+```
+@misc{fu2019retinamask,
+  author = {Van Valen Lab},
+  title = {DeepCell-RetinaMask},
+  year = {2020},
+  url = {https://github.com/vanvalenlab/deepcell-retinamask/tree/master},
+  note = {GitHub repository}
+}
+```
