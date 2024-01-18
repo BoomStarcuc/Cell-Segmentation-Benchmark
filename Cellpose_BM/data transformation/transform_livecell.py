@@ -9,7 +9,7 @@ samples_set = "val" #train, val, or test
 test_dict = np.load(os.path.join(data_dir, 'LIVECell_{}_all.npz'.format(samples_set)), allow_pickle=True)
 
 #nuclear
-tiff_dir = 'cellpose_livecell/{}'.format(samples_set)
+tiff_dir = '/cellpose_livecell/{}'.format(samples_set)
 if not os.path.isdir(tiff_dir):
     os.makedirs(tiff_dir)
 
