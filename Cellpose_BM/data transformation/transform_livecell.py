@@ -9,7 +9,7 @@ samples_set = "val" #train, val, or test
 test_dict = np.load(os.path.join(data_dir, 'LIVECell_{}_all.npz'.format(samples_set)), allow_pickle=True)
 
 #nuclear
-tiff_dir = '/cellpose_livecell/{}'.format(samples_set)
+tiff_dir = 'cellpose_livecell/{}'.format(samples_set)
 if not os.path.isdir(tiff_dir):
     os.makedirs(tiff_dir)
 
@@ -32,7 +32,7 @@ for i in range(len(X)):
     mask_filename = '{:06d}_masks.tif'.format(i)
     
     img = (X[i] - X[i].min())/(X[i].max() - X[i].min())
-    tifffile.imwrite(os.path.join(tiff_dir, img_filename), img*255)
+    tifffile.imwrite(os.path.join(tiff_dir, img_filename), img.astype(np.float32))
     tifffile.imwrite(os.path.join(tiff_dir, mask_filename), y[i])
 
 print('saved %s files to %s' % (len(X), tiff_dir))
