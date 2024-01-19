@@ -320,8 +320,8 @@ def main():
     labeled_images = np.expand_dims(labeled_images, axis=-1)
     print('labeled_images shape:', labeled_images.shape)
 
-    unique_list = ['Breast', 'Colon', 'Epidermis', 'Esophagus', 'Lung', 'lymph node metastasis', 'Lymph Node', 'Pancreas', 'Spleen', 'Tonsil', 'All']
-    output_data = np.empty([11, 5])
+    unique_list = ['A172', 'BT474', 'BV2', 'Huh7', 'MCF7', 'SkBr3', 'SHSY5Y', 'SKOV3', 'All']
+    output_data = np.empty([9, 5])
     for tissue_idx ,tissue in enumerate(unique_list):
         if tissue == "All":
             idx = [k for k in range(len(tissue_list))]
