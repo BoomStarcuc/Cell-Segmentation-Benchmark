@@ -11,7 +11,105 @@ Note: ```data_dir``` needs to be modified to your corresponding path.
 
 ## Installation
 
-Please refer to [Installation](mmdetection/docs/en/get_started.md/#Installation) for installation instructions.
+### Prerequisites
+
+In this section we demonstrate how to prepare an environment with PyTorch.
+
+MMDetection works on Linux, Windows and macOS. It requires Python 3.7+, CUDA 9.2+ and PyTorch 1.5+.
+
+```{note}
+If you are experienced with PyTorch and have already installed it, just skip this part and jump to the [next section](#installation). Otherwise, you can follow these steps for the preparation.
+```
+
+**Step 0.** Download and install Miniconda from the [official website](https://docs.conda.io/en/latest/miniconda.html).
+
+**Step 1.** Create a conda environment and activate it.
+
+```shell
+conda create --name openmmlab python=3.8 -y
+conda activate openmmlab
+```
+
+**Step 2.** Install PyTorch following [official instructions](https://pytorch.org/get-started/locally/), e.g.
+
+On GPU platforms:
+
+```shell
+conda install pytorch torchvision -c pytorch
+```
+
+On CPU platforms:
+
+```shell
+conda install pytorch torchvision cpuonly -c pytorch
+```
+
+### Installation
+
+We recommend that users follow our best practices to install MMDetection. However, the whole process is highly customizable. See [Customize Installation](#customize-installation) section for more information.
+
+#### Best Practices
+
+**Step 0.** Install [MMCV](https://github.com/open-mmlab/mmcv) using [MIM](https://github.com/open-mmlab/mim).
+
+```shell
+pip install -U openmim
+mim install mmcv-full
+```
+
+**Step 1.** Install MMDetection.
+
+Case a: If you develop and run mmdet directly, install it from source:
+
+```shell
+git clone https://github.com/open-mmlab/mmdetection.git
+cd mmdetection
+pip install -v -e .
+# "-v" means verbose, or more output
+# "-e" means installing a project in editable mode,
+# thus any local modifications made to the code will take effect without reinstallation.
+```
+
+Case b: If you use mmdet as a dependency or third-party package, install it with pip:
+
+```shell
+pip install mmdet
+```
+
+#### Verify the installation
+
+To verify whether MMDetection is installed correctly, we provide some sample codes to run an inference demo.
+
+**Step 1.** We need to download config and checkpoint files.
+
+```shell
+mim download mmdet --config yolov3_mobilenetv2_320_300e_coco --dest .
+```
+
+The downloading will take several seconds or more, depending on your network environment. When it is done, you will find two files `yolov3_mobilenetv2_320_300e_coco.py` and `yolov3_mobilenetv2_320_300e_coco_20210719_215349-d18dff72.pth` in your current folder.
+
+**Step 2.** Verify the inference demo.
+
+Option (a). If you install mmdetection from source, just run the following command.
+
+```shell
+python demo/image_demo.py demo/demo.jpg yolov3_mobilenetv2_320_300e_coco.py yolov3_mobilenetv2_320_300e_coco_20210719_215349-d18dff72.pth --device cpu --out-file result.jpg
+```
+
+You will see a new image `result.jpg` on your current folder, where bounding boxes are plotted on cars, benches, etc.
+
+Option (b). If you install mmdetection with pip, open you python interpreter and copy&paste the following codes.
+
+```python
+from mmdet.apis import init_detector, inference_detector
+
+config_file = 'yolov3_mobilenetv2_320_300e_coco.py'
+checkpoint_file = 'yolov3_mobilenetv2_320_300e_coco_20210719_215349-d18dff72.pth'
+model = init_detector(config_file, checkpoint_file, device='cpu')  # or device='cuda:0'
+inference_detector(model, 'demo/demo.jpg')
+```
+
+You will see a list of arrays printed, indicating the detected bounding boxes.
 
 ## Training from scratch
 
