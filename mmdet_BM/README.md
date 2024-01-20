@@ -1,13 +1,52 @@
-# Swin-S, Swin-T, Cascade Mask RCNN seesaw, SOLOv2, Res2Net, RF-Next, HRNet, Mask2former, Mask RCNN, MS RCNN
+# Swin-S, Swin-T, Cascade Mask RCNN seesaw, SOLOv2, Res2Net, RF-Next, HRNet, Mask2former, Mask RCNN, and MS RCNN
 
 ## Data transformation
-Since the structure of the datasets provided does not satisfy the format of the training cellpose, you need to run the following code from the data transformation directory
+Since the structure of the datasets provided does not satisfy the format of the training these methods, you need to run the following code from the data transformation directory
 
-```python transform_tissuenet.py```
+1. Creating TissueNet single-channel data
+
+**Step 1.** Generating images and annotations for all tissues
+
+```python transform_tissuenet_1C.py```
+
+Note: ```sample_type``` needs to be modified, including train, val, and test.
+
+**Step 2.** Splitting all tissues into individual tissue in the annotation file
+
+```python tissuenet_split_annotation.py```
+
+Note: ```sample_type```, ```channel```, and ```sample``` needs to be modified.
+
+
+2. Creating TissueNet dual-channel data
+
+**Step 1.** Generating images and annotations for all tissues
+
+```python transform_tissuenet_2C.py```
+
+Note: ```sample_type``` needs to be modified, including train, val, and test.
+
+**Step 2.** Splitting all tissues into individual tissue in the annotation file
+
+```python tissuenet_split_annotation.py```
+
+Note: ```sample_type```, ```channel```, and ```sample``` needs to be modified.
+
+
+3. Creating livecell data
+
+**Step 1.** Generating images and annotations for all cell types
 
 ```python transform_livecell.py```
 
-Note: ```data_dir``` needs to be modified to your corresponding path.
+Note: ```sample_type``` needs to be modified, including train, val, and test.
+
+**Step 2.** Splitting all cell types into individual cell type in the annotation file
+
+```python livecell_split_annotation.py```
+
+Note: ```sample_type``` needs to be modified.
+
 
 ## Installation
 
@@ -62,18 +101,12 @@ mim install mmcv-full
 Case a: If you develop and run mmdet directly, install it from source:
 
 ```shell
-git clone https://github.com/open-mmlab/mmdetection.git
-cd mmdetection
+git clone https://github.com/BoomStarcuc/Cell-Segmentation-Benchmark.git
+cd mmdet_BM/mmdetection
 pip install -v -e .
 # "-v" means verbose, or more output
 # "-e" means installing a project in editable mode,
 # thus any local modifications made to the code will take effect without reinstallation.
-```
-
-Case b: If you use mmdet as a dependency or third-party package, install it with pip:
-
-```shell
-pip install mmdet
 ```
 
 #### Verify the installation
