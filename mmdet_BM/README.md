@@ -5,47 +5,47 @@ Since the structure of the datasets provided does not satisfy the format of the 
 
 1. Creating TissueNet single-channel data
 
-  **Step 1.** Generating images and annotations for all tissues
+  - **Step 1.** Generating images and annotations for all tissues
   
-  ```python transform_tissuenet_1C.py```
+    ```python transform_tissuenet_1C.py```
   
-  Note: ```sample_type``` needs to be modified, including train, val, and test.
+    Note: ```sample_type``` needs to be modified, including train, val, and test.
 
-  **Step 2.** Splitting all tissues into individual tissue in the annotation file
+  - **Step 2.** Splitting all tissues into individual tissue in the annotation file
   
-  ```python tissuenet_split_annotation.py```
+    ```python tissuenet_split_annotation.py```
   
-  Note: ```sample_type```, ```channel```, and ```sample``` needs to be modified.
+    Note: ```sample_type```, ```channel```, and ```sample``` needs to be modified.
 
 
 2. Creating TissueNet dual-channel data
-
-  **Step 1.** Generating images and annotations for all tissues
+   
+  - **Step 1.** Generating images and annotations for all tissues
   
-  ```python transform_tissuenet_2C.py```
+    ```python transform_tissuenet_2C.py```
   
-  Note: ```sample_type``` needs to be modified, including train, val, and test.
+    Note: ```sample_type``` needs to be modified, including train, val, and test.
   
-  **Step 2.** Splitting all tissues into individual tissue in the annotation file
+  - **Step 2.** Splitting all tissues into individual tissue in the annotation file
   
-  ```python tissuenet_split_annotation.py```
+    ```python tissuenet_split_annotation.py```
   
-  Note: ```sample_type```, ```channel```, and ```sample``` needs to be modified.
+    Note: ```sample_type```, ```channel```, and ```sample``` needs to be modified.
 
 
 3. Creating livecell data
 
-  **Step 1.** Generating images and annotations for all cell types
+  - **Step 1.** Generating images and annotations for all cell types
   
-  ```python transform_livecell.py```
+    ```python transform_livecell.py```
   
-  Note: ```sample_type``` needs to be modified, including train, val, and test.
+    Note: ```sample_type``` needs to be modified, including train, val, and test.
   
-  **Step 2.** Splitting all cell types into individual cell type in the annotation file
+  - **Step 2.** Splitting all cell types into individual cell type in the annotation file
   
-  ```python livecell_split_annotation.py```
+    ```python livecell_split_annotation.py```
   
-  Note: ```sample_type``` needs to be modified.
+    Note: ```sample_type``` needs to be modified.
 
 
 ## Installation
