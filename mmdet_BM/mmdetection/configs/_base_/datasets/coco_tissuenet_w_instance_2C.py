@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'CocoTissuenetDataset'
-data_root = '/shared/rc/spl/hx5239_homedir/hx5239/data/val_merge/COCO_TissueNet_2Channel/'
+data_root = 'path/to/your/data/dir'
 
 # [55.0704424 55.0704424 55.0704424]
 # [67.22934807 67.22934807 67.22934807]
