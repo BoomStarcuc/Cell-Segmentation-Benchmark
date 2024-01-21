@@ -131,20 +131,131 @@ python demo/image_demo.py demo/demo.jpg yolov3_mobilenetv2_320_300e_coco.py yolo
 
 You will see a new image `result.jpg` on your current folder, where bounding boxes are plotted on cars, benches, etc.
 
-Option (b). If you install mmdetection with pip, open you python interpreter and copy&paste the following codes.
+## Methods
 
-```python
-from mmdet.apis import init_detector, inference_detector
+Before starting the training with the methods listed below, please update the ```data_root``` path in the files ```coco_livecell_instance.py```, ```coco_tissuenet_n_instance.py```, ```coco_tissuenet_n_instance_2C.py```, ```coco_tissuenet_w_instance.py```, and ```coco_tissuenet_w_instance_2C.py``` located in the ```_base_/datasets``` directory to match your specific dataset directory. Additionally, for each method used, ensure to modify the ```data_root``` path in the configs to reflect your specific dataset path.
 
-config_file = 'yolov3_mobilenetv2_320_300e_coco.py'
-checkpoint_file = 'yolov3_mobilenetv2_320_300e_coco_20210719_215349-d18dff72.pth'
-model = init_detector(config_file, checkpoint_file, device='cpu')  # or device='cuda:0'
-inference_detector(model, 'demo/demo.jpg')
+## Swin-S
+
+### Train from scratch
+
+For single-channel data training:
+
+```
+cd configs/swin
+ 
+sbatch swin-s-livecell.slurm
+
+sbatch swin-s-tissuenet-n.slurm
+
+sbatch swin-s-tissuenet-w.slurm
 ```
 
-You will see a list of arrays printed, indicating the detected bounding boxes.
+For dual-channel data training:
 
-## Training from scratch
+```
+cd configs/swin2C
+ 
+sbatch swin-s-tissuenet-n.slurm
+
+sbatch swin-s-tissuenet-w.slurm
+```
+
+Note: All the ```#SBATCH``` configurations in the above ```.slurm``` files are based on my current server settings. You will need to modify these parameters according to the specific requirements of your server.
+
+### Test on tissues
+
+For single-channel data testing:
+
+```
+cd configs/swin
+
+sh swin-s-livecell-train-All-test-on-tissues-submit.bash
+
+sh swin-s-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh swin-s-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
+For dual-channel data testing:
+
+```
+cd configs/swin2C
+ 
+sh swin-s-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh swin-s-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
+Note: Same as training, you need to modify ```#SBATCH``` configurations based on your server.
+
+******************************************************************************************
+
+### Train on one tissue
+
+For single-channel data training:
+
+```
+cd configs/swin
+ 
+sh swin-s-livecell-train-one-submit.bash
+
+sh swin-s-tissuenet-n-train-one-submit.bash
+
+sh swin-s-tissuenet-w-train-one-submit.bash
+```
+
+For dual-channel data training:
+
+```
+cd configs/swin2C
+ 
+sbatch swin-s-tissuenet-n-train-one-submit.bash
+
+sbatch swin-s-tissuenet-w-train-one-submit.bash
+```
+
+### Test on tissues
+
+For single-channel data testing:
+
+```
+cd configs/swin
+
+sh swin-s-livecell-train-one-test-on-tissues-submit.bash
+
+sh swin-s-tissuenet-n-train-one-test-on-tissues-submit.bash
+
+sh swin-s-tissuenet-w-train-one-test-on-tissues-submit.bash
+```
+
+For dual-channel data testing:
+
+```
+cd configs/swin2C
+ 
+sh swin-s-tissuenet-n-train-one-test-on-tissues-submit.bash
+
+sh swin-s-tissuenet-w-train-one-test-on-tissues-submit.bash
+```
+
+## Swin-T
+
+## Cascade Mask RCNN seesaw
+
+## SOLOv2
+
+## Res2Net
+
+## RF-Next
+
+## HRNet
+
+## Mask2former
+
+## Mask RCNN
+
+## MS RCNN
 
 See ```cellpose_submit_livecell_train.slurm```, ```cellpose_submit_nuclear_train.slurm```, and ```cellpose_submit_wholecell_train.slurm``` files.
 
