@@ -30,7 +30,7 @@ The structure of the datasets is identical to mmdet_BM, so you can directly foll
 
 4. Install Detectron2 using a local clone, use:
 
-  Before installing Detectron2, ensure that your machine has CUDA_HOME set up, as its absence can lead to a lack of GPU support when running programs; this can be verified by running the command ```python -c 'import torch; from torch.utils.cpp_extension import CUDA_HOME; print(torch.cuda.is_available(), CUDA_HOME)```. You might need to load CUDA 11.0.2 with GCC 9.3.0 using ```spack load cuda@11.0.2%gcc@9.3.0/lrd2rcw```, but this step depends on your server's setup and might be unnecessary if CUDA_HOME and GCC are already available.
+  Before installing Detectron2, ensure that your machine has CUDA_HOME set up, as its absence can lead to a lack of GPU support when running programs; this can be verified by running the command ```python -c 'import torch; from torch.utils.cpp_extension import CUDA_HOME; print(torch.cuda.is_available(), CUDA_HOME)'```. You might need to load CUDA 11.0.2 with GCC 9.3.0 using ```spack load cuda@11.0.2%gcc@9.3.0/lrd2rcw```, but this step depends on your server's setup and might be unnecessary if CUDA_HOME and GCC are already available.
   
   ```
   cd Centermask2
@@ -41,23 +41,32 @@ The structure of the datasets is identical to mmdet_BM, so you can directly foll
   
 ## Training from scratch
 
-Before beginning the training process, please ensure to update the path in ```register_coco_instances``` functions in ```train_net.py``` file to your specific dataset directory. In addition, please modify the ```OUTPUT_DIR``` path in all ```benchmark_config/*.yaml``` files to your specific path.
+Before beginning the training process, please ensure to update the path in the ```register_coco_instances``` functions in the ```train_net.py``` file to your specific dataset directory. In addition, please modify the ```OUTPUT_DIR``` path in all ```benchmark_config/*.yaml``` files to your specific path.
 
-Use:
+For single-channel data:
 
 ```
-sbatch resnest_livecell.slurm
+cd centermask2
+ 
+sbatch centermask2_livecell.slurm
 
-sbatch resnest_tissuenet_n_1C.slurm
+sbatch centermask2_tissuenet_n_1C.slurm
 
-sbatch resnest_tissuenet_n_2C.slurm
+sbatch centermask2_tissuenet_w_1C.slurm
+```
 
-sbatch resnest_tissuenet_w_1C.slurm
+For dual-channel data:
 
-sbatch resnest_tissuenet_w_2C.slurm
+```
+cd centermask22C
+ 
+sbatch centermask2_tissuenet_n_2C.slurm
+
+sbatch centermask2_tissuenet_w_2C.slurm
 ```
 
 Note: All the ```#SBATCH``` configurations in the above ```.slurm``` files are based on my current server settings. You will need to modify these parameters according to the specific requirements of your server.
+
 
 ## Test on tissues
 
