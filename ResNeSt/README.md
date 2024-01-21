@@ -30,7 +30,7 @@ The structure of the datasets is identical to mmdet_BM, so you can directly foll
 
 4. Install ResNeSt using a local clone, use:
 
-  Before installing Detectron2, ensure that your machine has CUDA_HOME set up, as its absence can lead to a lack of GPU support when running programs; this can be   verified by running the command python -c 'import torch; from torch.utils.cpp_extension import CUDA_HOME; print(torch.cuda.is_available(), CUDA_HOME)'. It's important to note that for ResNeSt, I have only successfully compiled it in a CUDA 10 environment, so you might need to load CUDA 10.2.89 with GCC 7.4.0 using spack load cuda@10.2.89%gcc@7.4.0, but this step depends on your server's setup and might be unnecessary if CUDA_HOME and GCC are already available.
+  Before installing Detectron2, ensure that your machine has CUDA_HOME set up, as its absence can lead to a lack of GPU support when running programs; this can be   verified by running the command ```python -c 'import torch; from torch.utils.cpp_extension import CUDA_HOME; print(torch.cuda.is_available(), CUDA_HOME)'```. It's important to note that for ResNeSt, I have only successfully compiled it in a CUDA 10 environment, so you might need to load CUDA 10.2.89 with GCC 7.4.0 using ```spack load cuda@10.2.89%gcc@7.4.0```, but this step depends on your server's setup and might be unnecessary if CUDA_HOME and GCC are already available.
   
   ```
   cd ResNeSt
