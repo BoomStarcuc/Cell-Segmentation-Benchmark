@@ -210,9 +210,9 @@ For dual-channel data training:
 ```
 cd configs/swin2C
  
-sbatch swin-s-tissuenet-n-train-one-submit.bash
+sh swin-s-tissuenet-n-train-one-submit.bash
 
-sbatch swin-s-tissuenet-w-train-one-submit.bash
+sh swin-s-tissuenet-w-train-one-submit.bash
 ```
 
 ### Test on tissues
@@ -241,9 +241,108 @@ sh swin-s-tissuenet-w-train-one-test-on-tissues-submit.bash
 
 ## Swin-T
 
+### Train from scratch
+
+For single-channel data training:
+
+```
+cd configs/swin
+ 
+sbatch swin-t-livecell.slurm
+
+sbatch swin-t-tissuenet-n.slurm
+
+sbatch swin-t-tissuenet-w.slurm
+```
+
+For dual-channel data training:
+
+```
+cd configs/swin2C
+ 
+sbatch swin-t-tissuenet-n.slurm
+
+sbatch swin-t-tissuenet-w.slurm
+```
+
+### Test on tissues
+
+For single-channel data testing:
+
+```
+cd configs/swin
+
+sh swin-t-livecell-train-All-test-on-tissues-submit.bash
+
+sh swin-t-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh swin-t-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
+For dual-channel data testing:
+
+```
+cd configs/swin2C
+ 
+sh swin-t-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh swin-t-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
 ## Cascade Mask RCNN seesaw
 
+### Train from scratch
+
+For single-channel data training:
+
+```
+cd configs/seesaw_loss
+ 
+sbatch seesaw-livecell.slurm
+
+sbatch seesaw-tissuenet-n.slurm
+
+sbatch seesaw-tissuenet-w.slurm
+```
+
+For dual-channel data training:
+
+```
+cd configs/seesaw_loss2C
+ 
+sbatch seesaw-tissuenet-n.slurm
+
+sbatch seesaw-tissuenet-w.slurm
+```
+
+### Test on tissues
+
+For single-channel data testing:
+
+```
+cd configs/seesaw_loss
+
+sh seesaw-livecell-train-All-test-on-tissues-submit.bash
+
+sh seesaw-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh seesaw-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
+For dual-channel data testing:
+
+```
+cd configs/seesaw_loss2C
+ 
+sh seesaw-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh seesaw-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
 ## SOLOv2
+
+
+
 
 ## Res2Net
 
@@ -256,13 +355,3 @@ sh swin-s-tissuenet-w-train-one-test-on-tissues-submit.bash
 ## Mask RCNN
 
 ## MS RCNN
-
-See ```cellpose_submit_livecell_train.slurm```, ```cellpose_submit_nuclear_train.slurm```, and ```cellpose_submit_wholecell_train.slurm``` files.
-
-Note: Cellpose will automatically identify the number of channels of your input. You need to follow the code from the data transformation directory to generate the correct structure of the dataset.
-
-## Test
-
-See ```cellpose_submit_livecell_test.slurm```, ```cellpose_submit_nuclear_test.slurm```, and ```cellpose_submit_wholecell_test.slurm``` files.
-
-Note: --nchan_test needs to be modified based on the number of channels of your training. --nchan_test can be set to 1 or 2.
