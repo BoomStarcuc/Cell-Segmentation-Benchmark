@@ -43,7 +43,7 @@ The structure of the datasets is identical to mmdet_BM, so you can directly foll
 
 Before beginning the training process, please ensure to update the path in the ```register_coco_instances``` functions in the ```train_net.py``` file to your specific dataset directory. In addition, please modify the ```OUTPUT_DIR``` path in all ```benchmark_config/*.yaml``` files to your specific path.
 
-For single-channel data:
+For single-channel data training:
 
 ```
 cd centermask2
@@ -55,7 +55,7 @@ sbatch centermask2_tissuenet_n_1C.slurm
 sbatch centermask2_tissuenet_w_1C.slurm
 ```
 
-For dual-channel data:
+For dual-channel data training:
 
 ```
 cd centermask22C
@@ -70,18 +70,26 @@ Note: All the ```#SBATCH``` configurations in the above ```.slurm``` files are b
 
 ## Test on tissues
 
-Use:
+For single-channel data testing:
 
 ```
-sh resnest_livecell_train_all_test_on_tissues_submit.bash
+cd centermask2
 
-sh resnest_tissuenet_n_train_all_test_on_tissues_submit.bash
+sh centermask2_livecell_train_all_test_on_tissues_submit.bash
 
-sh resnest_tissuenet_n_train_all_test_on_tissues_submit_2C.bash
+sh centermask2_tissuenet_n_train_all_test_on_tissues_submit.bash
 
-sh resnest_tissuenet_w_train_all_test_on_tissues_submit.bash
+sh centermask2_tissuenet_w_train_all_test_on_tissues_submit.bash
+```
 
-sh resnest_tissuenet_w_train_all_test_on_tissues_submit_2C.bash
+For dual-channel data testing:
+
+```
+cd centermask22C
+ 
+sh centermask2_tissuenet_n_train_all_test_on_tissues_submit.bash
+
+sh centermask2_tissuenet_w_train_all_test_on_tissues_submit.bash
 ```
 
 Note: Same as training, you need to modify ```#SBATCH``` configurations based on your server.
@@ -90,10 +98,10 @@ Note: Same as training, you need to modify ```#SBATCH``` configurations based on
 ## Citation
 
 ```
-@article{zhang2020resnest,
-title={ResNeSt: Split-Attention Networks},
-author={Zhang, Hang and Wu, Chongruo and Zhang, Zhongyue and Zhu, Yi and Zhang, Zhi and Lin, Haibin and Sun, Yue and He, Tong and Muller, Jonas and Manmatha, R. and Li, Mu and Smola, Alexander},
-journal={arXiv preprint arXiv:2004.08955},
-year={2020}
+@inproceedings{lee2020centermask,
+  title={CenterMask: Real-Time Anchor-Free Instance Segmentation},
+  author={Lee, Youngwan and Park, Jongyoul},
+  booktitle={CVPR},
+  year={2020}
 }
 ```
