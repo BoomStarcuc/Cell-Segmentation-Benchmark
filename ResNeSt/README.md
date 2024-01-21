@@ -41,7 +41,19 @@ The structure of the datasets is identical to mmdet_BM, so you can directly foll
 
 Before beginning the training process, please ensure to update the path in ```register_coco_instances``` functions in ```tools/train_net.py``` file to your specific dataset directory. In addition, please modify the ```OUTPUT_DIR``` path in all ```benchmark_config/*.yaml``` files to your specific path.
 
-See ```resnest_livecell.slurm```, ```resnest_tissuenet_n_1C.slurm```, ```resnest_tissuenet_n_2C.slurm```, ```resnest_tissuenet_w_1C.slurm``` and ```resnest_tissuenet_w_2C.slurm``` files.
+Use:
+
+```
+sbatch resnest_livecell.slurm
+
+sbatch resnest_tissuenet_n_1C.slurm
+
+sbatch resnest_tissuenet_n_2C.slurm
+
+sbatch resnest_tissuenet_w_1C.slurm
+
+sbatch resnest_tissuenet_w_2C.slurm
+```
 
 Note: All the ```#SBATCH``` configurations in the above ```.slurm``` files are based on my current server settings. You will need to modify these parameters according to the specific requirements of your server.
 
