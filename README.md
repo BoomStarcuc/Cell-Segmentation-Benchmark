@@ -45,3 +45,11 @@ The preprocessed datasets are available:
       - 'SHSY5Y'
       - 'SKOV3'
       - 'SkBr3'
+
+## Methods
+
+We provide the code for all 18 cell instance segmentation methods. Among these, Swin-S, Swin-T, Cascade Mask RCNN seesaw, SOLOv2, Res2Net, RF-Next, HRNet, Mask2former, Mask RCNN, and MS RCNN are integrated within the mmdetection framework. For training and testing instructions for each method, please refer to the detailed explanations provided within each method.
+
+## Pre-trained model
+
+We provide all pre-trained models conducted by our experiments, please find them on the provided [website](https://boomstarcuc.github.io/cellseg-benchmarking/). Therefore, you can select a model based on your own data.
