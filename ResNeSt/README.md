@@ -1,7 +1,5 @@
 # ResNeSt (Detectron2)
 
-# Cellpose
-
 ## Data transformation
 
 The structure of the datasets is identical to mmdet_BM, so you can directly follow data transformation in mmdet_BM. Please generate it once for use by three methods, including ResNeSt, Centermask2, and mmdet_BM.
