@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'CocoTissuenetDataset'
-data_root = '/shared/rc/spl/hx5239_homedir/hx5239/data/val_merge/'
+data_root = 'path/to/your/data/dir'
 
 # [55.0704424 55.0704424 55.0704424]
 # [67.22934807 67.22934807 67.22934807]
@@ -37,16 +37,16 @@ data = dict(
     train=dict(
         type=dataset_type,
         ann_file=data_root + 'tissuenet_nuclear_all_train.json',
-        img_prefix=data_root +'coco_to_mmseg/train',
+        img_prefix=data_root +'nuclear/train',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
         ann_file=data_root + 'tissuenet_nuclear_all_val.json',
-        img_prefix=data_root +'coco_to_mmseg/val',
+        img_prefix=data_root + 'nuclear/val',
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
         ann_file=data_root + 'tissuenet_nuclear_all_test.json',
-        img_prefix=data_root +'coco_to_mmseg/test',
+        img_prefix=data_root + 'nuclear/test',
         pipeline=test_pipeline))
 evaluation = dict(interval=5, metric=['bbox','segm'])
