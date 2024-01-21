@@ -341,17 +341,350 @@ sh seesaw-tissuenet-w-train-All-test-on-tissues-submit.bash
 
 ## SOLOv2
 
+### Train from scratch
 
+For single-channel data training:
 
+```
+cd configs/solov2
+ 
+sbatch solov2-livecell.slurm
+
+sbatch solov2-tissuenet-n.slurm
+
+sbatch solov2-tissuenet-w.slurm
+```
+
+For dual-channel data training:
+
+```
+cd configs/solov22C
+ 
+sbatch solov2-tissuenet-n.slurm
+
+sbatch solov2-tissuenet-w.slurm
+```
+
+### Test on tissues
+
+For single-channel data testing:
+
+```
+cd configs/solov2
+
+sh solov2-livecell-train-All-test-on-tissues-submit.bash
+
+sh solov2-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh solov2-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
+For dual-channel data testing:
+
+```
+cd configs/solov22C
+ 
+sh solov2-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh solov2-tissuenet-n-train-All-test-on-tissues-submit.bash
+```
 
 ## Res2Net
 
+### Train from scratch
+
+For single-channel data training:
+
+```
+cd configs/res2net
+ 
+sbatch res2net-livecell.slurm
+
+sbatch res2net-tissuenet-n.slurm
+
+sbatch res2net-tissuenet-w.slurm
+```
+
+For dual-channel data training:
+
+```
+cd configs/res2net2C
+ 
+sbatch res2net-tissuenet-n.slurm
+
+sbatch res2net-tissuenet-w.slurm
+```
+
+### Test on tissues
+
+For single-channel data testing:
+
+```
+cd configs/res2net
+
+sh res2net-livecell-train-All-test-on-tissues-submit.bash
+
+sh res2net-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh res2net-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
+For dual-channel data testing:
+
+```
+cd configs/res2net2C
+ 
+sh res2net-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh res2net-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
 ## RF-Next
+
+### Train from scratch
+
+For single-channel data training:
+
+```
+cd configs/rfnext
+ 
+sbatch rfnext-livecell.slurm
+
+sbatch rfnext-tissuenet-n.slurm
+
+sbatch rfnext-tissuenet-w.slurm
+```
+
+For dual-channel data training:
+
+```
+cd configs/rfnext2C
+ 
+sbatch rfnext-tissuenet-n.slurm
+
+sbatch rfnext-tissuenet-w.slurm
+```
+
+### Test on tissues
+
+For single-channel data testing:
+
+```
+cd configs/rfnext
+
+sh rfnext-livecell-train-All-test-on-tissues-submit.bash
+
+sh rfnext-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh rfnext-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
+For dual-channel data testing:
+
+```
+cd configs/rfnext2C
+ 
+sh rfnext-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh rfnext-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
 
 ## HRNet
 
+### Train from scratch
+
+For single-channel data training:
+
+```
+cd configs/hrnet
+ 
+sbatch hrnet-livecell.slurm
+
+sbatch hrnet-tissuenet-n.slurm
+
+sbatch hrnet-tissuenet-w.slurm
+```
+
+For dual-channel data training:
+
+```
+cd configs/hrnet2C
+ 
+sbatch hrnet-tissuenet-n.slurm
+
+sbatch hrnet-tissuenet-w.slurm
+```
+
+### Test on tissues
+
+For single-channel data testing:
+
+```
+cd configs/hrnet
+
+sh hrnet-livecell-train-All-test-on-tissues-submit.bash
+
+sh hrnet-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh hrnet-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
+For dual-channel data testing:
+
+```
+cd configs/hrnet2C
+ 
+sh hrnet-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh hrnet-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
 ## Mask2former
+
+### Train from scratch
+
+For single-channel data training:
+
+```
+cd configs/mask2former
+ 
+sbatch mask2former-livecell.slurm
+
+sbatch mask2former-tissuenet-n.slurm
+
+sbatch mask2former-tissuenet-w.slurm
+```
+
+For dual-channel data training:
+
+```
+cd configs/mask2former2C
+ 
+sbatch mask2former-tissuenet-n.slurm
+
+sbatch mask2former-tissuenet-w.slurm
+```
+
+### Test on tissues
+
+For single-channel data testing:
+
+```
+cd configs/mask2former
+
+sh mask2former-livecell-train-All-test-on-tissues-submit.bash
+
+sh mask2former-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh mask2former-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
+For dual-channel data testing:
+
+```
+cd configs/mask2former2C
+ 
+sh mask2former-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh mask2former-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
 
 ## Mask RCNN
 
+### Train from scratch
+
+For single-channel data training:
+
+```
+cd configs/strong_baselines
+ 
+sbatch mask-rcnn-fpn-2conv-livecell.slurm
+
+sbatch mask-rcnn-fpn-2conv-tissuenet-n.slurm
+
+sbatch mask-rcnn-fpn-2conv-tissuenet-w.slurm
+```
+
+For dual-channel data training:
+
+```
+cd configs/strong_baselines2C
+ 
+sbatch mask-rcnn-fpn-2conv-tissuenet-n.slurm
+
+sbatch mask-rcnn-fpn-2conv-tissuenet-w.slurm
+```
+
+### Test on tissues
+
+For single-channel data testing:
+
+```
+cd configs/strong_baselines
+
+sh MRF2conv-livecell-train-All-test-on-tissues-submit.bash
+
+sh MRF2conv-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh MRF2conv-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
+For dual-channel data testing:
+
+```
+cd configs/strong_baselines2C
+ 
+sh MRF2conv-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh MRF2conv-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
 ## MS RCNN
+
+### Train from scratch
+
+For single-channel data training:
+
+```
+cd configs/ms_rcnn
+ 
+sbatch msrcnn-livecell.slurm
+
+sbatch msrcnn-tissuenet-n.slurm
+
+sbatch msrcnn-tissuenet-w.slurm
+```
+
+For dual-channel data training:
+
+```
+cd configs/ms_rcnn2C
+ 
+sbatch msrcnn-tissuenet-n.slurm
+
+sbatch msrcnn-tissuenet-w.slurm
+```
+
+### Test on tissues
+
+For single-channel data testing:
+
+```
+cd configs/ms_rcnn
+
+sh ms_rcnn-livecell-train-All-test-on-tissues-submit.bash
+
+sh ms_rcnn-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh ms_rcnn-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
+
+For dual-channel data testing:
+
+```
+cd configs/ms_rcnn2C
+ 
+sh ms_rcnn-tissuenet-n-train-All-test-on-tissues-submit.bash
+
+sh ms_rcnn-tissuenet-w-train-All-test-on-tissues-submit.bash
+```
