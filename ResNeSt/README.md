@@ -17,7 +17,9 @@ The structure of the datasets is identical to mmdet_BM, so you can directly foll
 
 2. Install PyTorch, use:
 
-  ```conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch-lts```
+  ```
+  conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch-lts
+```
 
 3. Install the required packages, use:
 
@@ -34,20 +36,35 @@ The structure of the datasets is identical to mmdet_BM, so you can directly foll
   
   ```
   cd ResNeSt
-  python -m pip install -e detectron2-ResNeSt
+  python -m pip install -e ResNeSt
   ```
 
 ## Training from scratch
 
-See ```cellpose_submit_livecell_train.slurm```, ```cellpose_submit_nuclear_train.slurm```, and ```cellpose_submit_wholecell_train.slurm``` files.
+Before beginning the training process, please ensure to update the path in ```register_coco_instances``` functions in ```tools/train_net.py``` file to your specific dataset directory. In addition, please modify the ```OUTPUT_DIR``` path in all ```benchmark_config/*.yaml``` files to your specific path.
 
-Note: Cellpose will automatically identify the number of channels of your input. You need to follow the code from the data transformation directory to generate the correct structure of the dataset.
+See ```resnest_livecell.slurm```, ```resnest_tissuenet_n_1C.slurm```, ```resnest_tissuenet_n_2C.slurm```, ```resnest_tissuenet_w_1C.slurm``` and ```resnest_tissuenet_w_2C.slurm``` files.
 
-## Test
+Note: All the ```#SBATCH``` configurations in the above ```.slurm``` files are based on my current server settings. You will need to modify these parameters according to the specific requirements of your server.
 
-See ```cellpose_submit_livecell_test.slurm```, ```cellpose_submit_nuclear_test.slurm```, and ```cellpose_submit_wholecell_test.slurm``` files.
+## Test on tissues
 
-Note: --nchan_test needs to be modified based on the number of channels of your training. --nchan_test can be set to 1 or 2.
+Use:
+
+```
+sh resnest_livecell_train_all_test_on_tissues_submit.bash
+
+sh resnest_tissuenet_n_train_all_test_on_tissues_submit.bash
+
+sh resnest_tissuenet_n_train_all_test_on_tissues_submit_2C.bash
+
+sh resnest_tissuenet_w_train_all_test_on_tissues_submit.bash
+
+sh resnest_tissuenet_w_train_all_test_on_tissues_submit_2C.bash
+```
+
+Note: Same as training, you need to modify ```#SBATCH``` configurations based on your server.
+
 
 ## Citation
 
