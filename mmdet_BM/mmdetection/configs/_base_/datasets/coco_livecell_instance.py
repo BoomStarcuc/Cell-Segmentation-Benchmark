@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'CocoTissuenetDataset'
-data_root = '/shared/rc/spl/hx5239_homedir/hx5239/data/val_merge/'
+data_root = 'path/to/your/data/dir'
 
 # [55.0704424 55.0704424 55.0704424]
 # [67.22934807 67.22934807 67.22934807]
@@ -36,17 +36,17 @@ data = dict(
     workers_per_gpu=1,
     train=dict(
         type=dataset_type,
-        ann_file=data_root + 'LIVECell_256_all_train.json',
-        img_prefix=data_root +'livecell_split_256/train',
+        ann_file=data_root + 'LIVECell_all_train.json',
+        img_prefix=data_root +'train',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        ann_file=data_root + 'LIVECell_256_all_val.json',
-        img_prefix=data_root +'livecell_split_256/val',
+        ann_file=data_root + 'LIVECell_all_val.json',
+        img_prefix=data_root +'val',
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
-        ann_file=data_root + 'LIVECell_256_all_test.json',
-        img_prefix=data_root +'livecell_split_256/test',
+        ann_file=data_root + 'LIVECell_all_test.json',
+        img_prefix=data_root +'test',
         pipeline=test_pipeline))
 evaluation = dict(interval=5, metric=['bbox'])
