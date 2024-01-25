@@ -1458,7 +1458,7 @@ def normalize_mi_ma(x, mi, ma, clip=False, eps=1e-20, dtype=np.float32):
 def main():
     # Training settings
     parser = argparse.ArgumentParser(description='PyTorch Mesmer Example')
-    parser.add_argument('--batch-size', type=int, default=1, metavar='N',
+    parser.add_argument('--batch-size', type=int, default=8, metavar='N',
                         help='input batch size for training (default: 64)')
     parser.add_argument('--epochs', type=int, default=200, metavar='N',
                         help='number of epochs to train (default: 10)')
