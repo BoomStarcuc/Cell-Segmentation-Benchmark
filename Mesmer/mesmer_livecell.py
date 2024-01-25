@@ -1544,7 +1544,7 @@ def main():
 
     batch_size = args.batch_size
 
-    min_objects = 0  # throw out images with fewer than this many objects
+    min_objects = 1  # throw out images with fewer than this many objects
     print("Model name is {}".format(model_name))
 
     # create augmented dataset
