@@ -71,4 +71,4 @@ else:
         tifffile.imwrite(os.path.join(tiff_dir, img_filename), X[i].transpose(2, 0, 1))
         tifffile.imwrite(os.path.join(tiff_dir, mask_filename), y[i])
 
-print('saved %s files to %s' % (len(X), tiff_dir_test))
+print('saved %s files to %s' % (len(X), tiff_dir))
