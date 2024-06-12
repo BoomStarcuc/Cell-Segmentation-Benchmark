@@ -52,4 +52,4 @@ We provide the code for all 18 cell instance segmentation methods. Among these, 
 
 ## Pre-trained models
 
-We provide all pre-trained models conducted by our experiments, please find them on the provided [website](https://boomstarcuc.github.io/cellseg-benchmarking/). Therefore, you can select a model based on your own data.
+We provide all pre-trained models conducted by our experiments, please find them on the provided [website](https://boomstarcuc.github.io/SegGal/). Therefore, you can select a model based on your own data.
